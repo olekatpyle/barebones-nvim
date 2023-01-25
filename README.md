@@ -60,16 +60,26 @@ nvim
 |----- stylua.toml  
 
 
-Explanation:
-_after/plugin_: The after/plugin holds coniguration for installed plugins, to add on top of the plugin
-_after/lsp/setup.lua_: Configuratio file for language-server. Customize each installed server. 
-_lua/barebones/keys.lua_: Configuration file for key mappings. This file already defines some sane defaults as an example. *NOTE*: Current <Leader> key is _SPACE_.
-_lua/barebones/options.lua_: Basic options for the functionality of neovim
-_lua/barebones/lsp/on_attach.lua_: Defines the default on_attach property that every language server will have in common.
-_plugin/init.lua_: This file defines, which plugins to install with packer. The plugins are being installed on save.
-_plugin/*.lua_: All other files inside /nvim/plugin are configuration files for some of the installed plugins. Visit the plugin repositories for more information on configuring the plugins
-_undodir/* : The undodir holds all history files for undo actions
-_init.lua_: The entrypoint for neovim. This files requires all modules, that the setup consists of.
-_stylua.toml_: Configuration file for the Lua formatter *stylua*
+### Explanation:
++ ***after/plugin*** 
+    - The after/plugin holds coniguration for installed plugins, to add on top of the plugin
++ ***after/lsp/setup.lua*** 
+    - Configuratio file for language-server. Customize each installed server. 
++ ***lua/barebones/keys.lua*** 
+    - Configuration file for key mappings. This file already defines some sane defaults as an example. *NOTE*: Current <Leader> key is _SPACE_.
++ ***lua/barebones/options.lua*** 
+    - Basic options for the functionality of neovim
++ ***lua/barebones/lsp/on_attach.lua*** 
+    - Defines the default on_attach property that every language server will have in common.
++ ***plugin/init.lua*** 
+    - This file defines, which plugins to install with packer. The plugins are being installed on save.
++ ***plugin/*.lua*** 
+    - All other files inside /nvim/plugin are configuration files for some of the installed plugins. Visit the plugin repositories for more information on configuring the plugins
++ ***undodir/* *** 
+    - The undodir holds all history files for undo actions
++ ***init.lua*** 
+    - The entrypoint for neovim. This files requires all modules, that the setup consists of.
++ ***stylua.toml*** 
+    - Configuration file for the Lua formatter *stylua*
 
-If more information is needed or something is not working correctly, please file an issue. PROST
+If more information is needed or something is not working correctly, please file an issue. PROST!

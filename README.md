@@ -35,26 +35,26 @@ This setup has the following files tree:
 
 nvim  
 |----- after  
-|    |------- plugin  
-|           |------- lsp  
-|                  |------- setup.lua  
+|....|------- plugin  
+|...........|------- lsp  
+|..................|------- setup.lua  
 |  
 |----- lua  
-|    |------- barebones  
-|    |      |------- keys.lua  
-|    |      |------- options.lua  
-|    |   
-|    |------- lsp          
-|           |------- on_attach.lua  
+|....|------- barebones  
+|....|......|------- keys.lua  
+|....|......|------- options.lua  
+|....|   
+|....|------- lsp          
+|...........|------- on_attach.lua  
 |  
 |----- plugin    
-|    |------ init.lua  
-|    |------ cmp.lua  
-|    |------ luasnip.lua  
-|    |------ mason.lua  
-|    |------ neotree.lua  
-|    |------ null.lua  
-|    |------ tree-sitter.lua  
+|....|------ init.lua  
+|....|------ cmp.lua  
+|....|------ luasnip.lua  
+|....|------ mason.lua  
+|....|------ neotree.lua  
+|....|------ null.lua  
+|....|------ tree-sitter.lua  
 |----- undodir  
 |----- init.lua  
 |----- stylua.toml  

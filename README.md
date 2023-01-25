@@ -33,32 +33,38 @@ installed upon saving the file.
 ## File Tree
 This setup has the following files tree:
 
-nvim  
-|----- after  
-|....|------- plugin  
-|...........|------- lsp  
-|..................|------- setup.lua  
-|  
-|----- lua  
-|....|------- barebones  
-|....|......|------- keys.lua  
-|....|......|------- options.lua  
-|....|   
-|....|------- lsp          
-|...........|------- on_attach.lua  
-|  
-|----- plugin    
-|....|------ init.lua  
-|....|------ cmp.lua  
-|....|------ luasnip.lua  
-|....|------ mason.lua  
-|....|------ neotree.lua  
-|....|------ null.lua  
-|....|------ tree-sitter.lua  
-|----- undodir  
-|----- init.lua  
-|----- stylua.toml  
+```bash
 
+nvim
+├── after
+│   ├── ftplugin
+│   │   └── cs.lua
+│   └── plugin
+│       └── lsp
+│           └── setup.lua
+├── ftdetect
+│   └── astro.lua
+├── init.lua
+├── lua
+│   └── barebones
+│       ├── keys.lua
+│       ├── lsp
+│       │   └── on_attach.lua
+│       └── options.lua
+├── plugin
+│   ├── cmp.lua
+│   ├── init.lua
+│   ├── luasnip.lua
+│   ├── mason.lua
+│   ├── neotree.lua
+│   ├── null.lua
+│   ├── packer_compiled.lua
+│   ├── tree-sitter.lua
+│   └── xunit.lua
+├── stylua.toml
+└── undodir
+
+```
 
 ### Explanation:
 + ***after/plugin*** 

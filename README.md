@@ -33,6 +33,8 @@ installed upon saving the file.
 ## File Tree
 This setup has the following files tree:
 
+`
+
 nvim
 |----- after
 |    |------- plugin
@@ -58,6 +60,7 @@ nvim
 |----- undodir
 |----- init.lua
 |----- stylua.toml
+`
 
 Explanation:
 _after/plugin_: The after/plugin holds coniguration for installed plugins, to add on top of the plugin

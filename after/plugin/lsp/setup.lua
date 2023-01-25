@@ -35,12 +35,14 @@ util.on_setup = util.add_hook_after(util.on_setup, function(config)
 end)
 
 require('mason-lspconfig').setup({
+  -- configure, which server should be ensured to be installed
   ensure_installed = {
     'sumneko_lua',
   },
 })
 
 require('mason-lspconfig').setup_handlers({
+  -- configure your lsp servers here
   ['sumneko_lua'] = function()
     lspconfig.sumneko_lua.setup({
       settings = {

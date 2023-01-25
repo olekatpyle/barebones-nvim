@@ -1,8 +1,10 @@
+-- Setup for hover lsp handlers
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = 'solid',
 })
 
 ---@param bufnr number
+-- Setup default key mappings for LSP
 local function buf_set_keymaps(bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)

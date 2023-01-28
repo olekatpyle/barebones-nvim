@@ -1,5 +1,5 @@
 # barebones-nvim
-## Minimal setup for [Neovim](https://github.com/neovim/neovim).
+### Minimal setup for [Neovim](https://github.com/neovim/neovim) personal development environment!
 
 This repository should allow for a quick, easy and unbloated setup for neovim. The main goal is to help beginners get quick into neovim configuration.  
 The following plugins and features come preinstalled:
@@ -25,6 +25,16 @@ As an entrypoint for LSP and Null-ls, the [sumneko-lua-language-server](https://
 launch of neovim as a result of defining it inside `ensure_installed` in *after/plugin/lsp/setup.lua*. Stylua needs
 to be installed manually. See the github repo for more details. Once the formatter is installed, lua files are being
 installed upon saving the file.
+
+## Installation
+### LINUX
+
+Clone the repository to $HOME/.config
+
+```bash
+cd ~/.config
+git clone https://github.com/olekatpyle/barebones-nvim.git nvim
+```
 
 ## Plugin suggestions to install, if you are new neovim
 - [WhichKey](https://github.com/folke/which-key.nvim) displays possible key bindings of the command you started typing

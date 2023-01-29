@@ -55,7 +55,4 @@ vim.cmd([[
   set laststatus=3
   set termguicolors
   set background=dark
-  ""set runtimepath+=~/.atpyle/dev/gith/xunit.nvim
-
-  hi signcolumn guibg=NONE
 ]])

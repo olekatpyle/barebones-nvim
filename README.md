@@ -1,8 +1,19 @@
-# barebones-nvim
-### Minimal setup for [Neovim](https://github.com/neovim/neovim) personal development environment!
+<h1 align="center"> barebones-nvim 🦴 </h1>
 
-This repository should allow for a quick, easy and unbloated setup for neovim. The main goal is to help beginners get quick into neovim configuration.  
+<p align="center">A minimal setup for <a href="https://github.com/neovim/neovim">Neovim</a> - your personal development environment!</p>
+
+---
+
+<br/>
+
+# Introduction
+
+This repository should allow for a quick, easy and unbloated setup for neovim with sane presets. The main goal is to help beginners get quickly 
+into neovim configuration.
+
 The following plugins and features come preinstalled:
+
+<br/>
 
 + [Neotree](https://github.com/nvim-neo-tree/neo-tree.nvim) file browsing and all dependencies 
     - in addition [Devicons](https://github.com/nvim-tree/nvim-web-devicons) is installed, although this plugin will only work if you have a patched [Nerd Font](https://github.com/ryanoasis/nerd-fonts) installed and ready to go for your terminal
@@ -16,18 +27,33 @@ The following plugins and features come preinstalled:
 + [FriendlySnippets](https://github.com/rafamadriz/friendly-snippets) snippet collection used by LuaSnip
 + [TabNine](https://www.tabnine.com/) AI assistent for additional suggestions for Compe
 
-Plugins are being managed by [Packer](https://github.com/wbthomason/packer.nvim). On first launch of neovim
+<br/>
+
+Plugins are managed by [Packer](https://github.com/wbthomason/packer.nvim). On first launch of neovim,
 packer will install itself. Afterwards, you can use the command `PackerInstall`, to install all predefined plugins.
-As an alternative, `PackerSync` is being run after each save of plugin/init.lua.
+As an alternative, `PackerSync` runs after each save of */plugin/init.lua*.
+
+<br/>
 
 As an entrypoint for LSP and Null-ls, the [sumneko-lua-language-server](https://github.com/sumneko/vscode-lua) and 
-[stylua](https://github.com/JohnnyMorganz/StyLua) are predefined. The language server will be installed after first
-launch of neovim as a result of defining it inside `ensure_installed` in *after/plugin/lsp/setup.lua*. Stylua needs
+[stylua](https://github.com/JohnnyMorganz/StyLua) are predefined with this setup. 
+The language server will be installed after the first launch of neovim as a result of defining 
+it inside the `ensure_installed` property in *after/plugin/lsp/setup.lua*. Stylua needs
 to be installed manually. See the github repo for more details. Once the formatter is installed, lua files are being
-installed upon saving the file.
+formatted upon saving the file. You can change the formatter options in the `stylua.toml` configuration file.
 
-## Installation
-### LINUX
+<br/>
+
+--- 
+
+<br/>
+
+# Installation
+
+Before you follow the installation process you may want to backup your existing nvim configuration. 
+The following installation steps will otherwise overwrite them.
+
+### Linux
 
 Clone the repository to $HOME/.config
 
@@ -36,11 +62,33 @@ cd ~/.config
 git clone https://github.com/olekatpyle/barebones-nvim.git nvim
 ```
 
-## Plugin suggestions to install, if you are new neovim
-- [WhichKey](https://github.com/folke/which-key.nvim) displays possible key bindings of the command you started typing
-- A theme if you get annoyed by the barebones look. A good place to look for themes -> [Vim Color Schemes](https://vimcolorschemes.com/)
+<br/>
 
-## File Tree
+### First step after installation
+
+Run the command `checkhealth` in commandmode, to identify any unsatisfied dependencies or misconfigurations
+(in general, it is a good idea to run this command every now and then.).
+
+<br/>
+
+### Plugin suggestions for install, if you are new to neovim
++ [WhichKey](https://github.com/folke/which-key.nvim) displays possible key bindings of the command you started typing
++ A theme if you get annoyed by the barebones look. A good place to look for themes -> [Vim Color Schemes](https://vimcolorschemes.com/)
+    - most theme repositories will give you detailed explanation on how to enable the theme inside your setup    
+    - in general as an example: 
+
+    ```vim
+        " inside /lua/barebones/options.lua vim.cmd([[..]])
+        colorscheme gruvbox-baby 
+    ```
+
+<br/>
+
+---
+
+<br/>
+
+# File Tree
 This setup has the following files tree:
 
 ```bash
@@ -48,12 +96,10 @@ This setup has the following files tree:
 nvim
 ├── after
 │   ├── ftplugin
-│   │   └── cs.lua
 │   └── plugin
 │       └── lsp
 │           └── setup.lua
 ├── ftdetect
-│   └── astro.lua
 ├── init.lua
 ├── lua
 │   └── barebones
@@ -68,34 +114,55 @@ nvim
 │   ├── mason.lua
 │   ├── neotree.lua
 │   ├── null.lua
-│   ├── packer_compiled.lua
 │   ├── tree-sitter.lua
-│   └── xunit.lua
 ├── stylua.toml
 └── undodir
 
 ```
 
-### Explanation:
-+ ***after/plugin*** 
-    - The after/plugin holds coniguration for installed plugins, to add on top of the plugin
-+ ***after/lsp/setup.lua*** 
-    - Configuratio file for language-server. Customize each installed server. 
-+ ***lua/barebones/keys.lua*** 
-    - Configuration file for key mappings. This file already defines some sane defaults as an example. *NOTE*: Current <Leader> key is _SPACE_.
-+ ***lua/barebones/options.lua*** 
-    - Basic options for the functionality of neovim
-+ ***lua/barebones/lsp/on_attach.lua*** 
-    - Defines the default on_attach property that every language server will have in common.
-+ ***plugin/init.lua*** 
-    - This file defines, which plugins to install with packer. The plugins are being installed on save.
-+ ***plugin/*.lua*** 
-    - All other files inside /nvim/plugin are configuration files for some of the installed plugins. Visit the plugin repositories for more information on configuring the plugins
-+ ***undodir/* *** 
-    - The undodir holds all history files for undo actions
-+ ***init.lua*** 
-    - The entrypoint for neovim. This files requires all modules, that the setup consists of.
-+ ***stylua.toml*** 
-    - Configuration file for the Lua formatter *stylua*
+### Explanation
 
-If more information is needed or something is not working correctly, please file an issue. PROST!
+In general there are five important directories to understand when it comes to configuring neovim.
+
+#### `/lua`
+Contains lua files that are being loaded **at** startup of neovim. This is the place
+where you want to set your options for the editor, configure your keymaps aswell as other lua code, that 
+needs to be loaded at start, i.e custom functionalities for your setup.
+
+#### `/plugin`
+Contains the packer init.lua to specify, which plugins to install. Further, the directory is being used
+to define plugin specific configuration files, where the call to the plugins setup-function is being made (most
+plugins need to be initialized with this call). Inside the setup-function, you can configure native settings 
+for the plugin. If you want to add your own plugins, this is a good place to do so.
+
+#### `/ftplugin`
+If you have filetype specific plugins - i.e a plugin, that is only used with lua files - you should put the 
+configuration file (like the ones in /plugin) inside this directory. This has the advantage, that the modules
+defined inside /ftplugin are only being loaded, when you open a file of the specific filetype, making the
+editor more performant.
+
+#### `/ftdetect`
+Inside **/ftdetect** you may put modules, that help you detect filetypes. Since there are some niche filetypes 
+cruising around, neovim may not detect them. 
+
+
+#### `/after` 
+If you want to expand functionalities of plugins, you want to put those changes inside this directory.
+This makes sure, that instead of replacing the native plugin, you add to it.
+
+<br/>
+
+--- 
+
+# Options
+
+All options for the editor are set in */lua/barebones/options.lua*. The comments for each option should be 
+sufficient. Of course, if you need a detailed explanation, use the built-in help system in commandmode:
+
+`:h <option_you_need_help_for>`
+
+---
+
+If more information is needed, something is unclear or something is not working correctly, 
+please file an issue and feel free to ask. PROST!
+

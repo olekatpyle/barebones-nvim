@@ -21,7 +21,7 @@ local options = {
   termguicolors = true, -- set term gui colors (most terminals support this)
   timeoutlen = 200, -- time to  wait for a mapped sequence to complete (in milliseconds)
   undofile = true, -- enable persistent undo
-  undodir = '$HOME/.config/nvim/undodir/',
+  -- undodir = '/home/$USER/.config/nvim/undodir/', -- set the path to the undo directory (Example uses linux path, adjust accordingly to your OS)
   updatetime = 1000, -- faster completion (4000ms default)
   expandtab = true, -- convert tabs to spaces
   shiftwidth = 4, -- the number of spaces inserted for each indentation
@@ -47,6 +47,7 @@ vim.o.ch = 0 -- line height of cmd
 
 -- Some vim options haven't been ported to nvim but still can be set via [vim.cmd]
 vim.cmd([[
+  " wildignore can be used to filter files, neovim shouldn't bother with looking at
   set wildignore+=*.pyc
   set wildignore+=*.git
   set wildignore+=**/node_modules/*

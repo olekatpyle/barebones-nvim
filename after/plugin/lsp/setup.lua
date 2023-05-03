@@ -37,13 +37,13 @@ end)
 require('mason-lspconfig').setup({
   -- configure, which server should be ensured to be installed
   ensure_installed = {
-    'sumneko_lua',
+    'lua_ls',
   },
 })
 
 require('mason-lspconfig').setup_handlers({
   -- configure your lsp servers here
-  ['sumneko_lua'] = function()
+  ['lua_ls'] = function()
     lspconfig.sumneko_lua.setup({
       settings = {
         Lua = {
